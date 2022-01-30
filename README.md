@@ -1,5 +1,5 @@
 # DNA Transcriber / Translator
-School admin system for evaluation of university performance
+DNA Transcription / Translation program for DNA strand manipulation.
 
 Author: Spencer C. DeMera\
 Author's email: Spencer.demera@csu.fullerton.edu
