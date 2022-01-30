@@ -4,6 +4,8 @@ School admin system for evaluation of university performance
 Author: Spencer C. DeMera\
 Author's email: Spencer.demera@csu.fullerton.edu
 
+<img src="DNA.png>
+
 --- 
 Project is meant as a fun exploration of genetic material manipulation as well as transcription and translation using C++. This system takes a strand of DNA as input and allows for transcribing it to RNA, finding the complement of both the DNA and RNA, reversing the DNA and RNA, as well as translating the DNA and RNA to a protein. System is terminal based and relies on menu navigation via numerical input from the command line.
  
