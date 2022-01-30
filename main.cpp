@@ -5,6 +5,7 @@
 #include "colors.h"
 using namespace std;
 
+// Example Strand: 
 // TCCATTCCATGATAATGGCCGGGATTAACGAGCCCGAAGCTTGTGAATAACGGTCA
 
 void header();
