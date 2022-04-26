@@ -16,4 +16,4 @@ Here "program" means all modules or files in the set; usually there are three of
 this course.
 
 ---
-File execution: These programs were written in Repl.it Virtual online IDE and compiled using Linux.
+File execution: These programs were written in Visual Studio Code and compiled using Ubuntu on WSL through Windows 11.
