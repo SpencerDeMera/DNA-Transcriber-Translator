@@ -17,10 +17,7 @@
 #  permission to execute box.
 
 # Compile C++ files to object files
-g++ -c main.cpp -o main.o
-
-# Link object files
-g++ -o DNA-Translate.out main.o
+g++ main.cpp -std=c++17 -o DNA-Translate.out
 
 # ----- Run the program -----
 ./DNA-Translate.out

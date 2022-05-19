@@ -5,8 +5,7 @@
 #include "colors.h"
 using namespace std;
 
-// Example Strand: 
-// TCCATTCCATGATAATGGCCGGGATTAACGAGCCCGAAGCTTGTGAATAACGGTCA
+// Test Strand : TCCATTCCATGATAATGGCCGGGATTAACGAGCCCGAAGCTTGTGAATAACGGTCA
 
 void header();
 void menu();
@@ -20,6 +19,7 @@ int main() {
     int userChoice = 0;
     bool strandFlag = false;
     bool transcribFlag = false;
+    bool translateFlag = false;
     
     do {
         menu();
@@ -85,17 +85,23 @@ int main() {
                 break;
             case 7:
                 // DNA translate: translate directly from DNA to protein (transcribes to RNA in background)
-                if (strandFlag) {
+                if (strandFlag == true && translateFlag == false) {
                     T.DNAtranslate();
                     transcribFlag = true;
+                    translateFlag = true;
+                } else if (translateFlag == true) {
+                    cout << RED << "ERROR: DNA strand has already been translated.\n\n" << RESET;
                 } else {
                     cout << RED << "ERROR: No DNA strand has been input yet.\n\n" << RESET;
                 }
                 break;
             case 8:
                 // RNA translate: translates RNA, if transcribed from DNA, to protein
-                if (strandFlag && transcribFlag) {
+                if (strandFlag == true &&  transcribFlag == true && translateFlag == false) {
                     T.RNAtranslate();
+                    translateFlag = true;
+                } else if (translateFlag == true) {
+                    cout << RED << "ERROR: RNA strand has already been translated.\n\n" << RESET;
                 } else {
                     cout << RED << "ERROR: No DNA strand has been input yet OR DNA strand has not been transcribed.\n\n" << RESET;
                 }

@@ -47,67 +47,30 @@ Translator::Translator() {
     // - AUG
     // STOP codons
     // - UAA, UAG, UGA
-    AAs["UUU"] = 'F';
-    AAs["UUC"] = 'F';
-    AAs["UUA"] = 'L';
-    AAs["UUG"] = 'L';
-    AAs["CUU"] = 'L';
-    AAs["CUC"] = 'L';
-    AAs["CUA"] = 'L';
-    AAs["CUG"] = 'L';
-    AAs["AUU"] = 'I';
-    AAs["AUC"] = 'I';
-    AAs["AUA"] = 'I';
-    AAs["AUG"] = 'M';
-    AAs["GUU"] = 'V';
-    AAs["GUC"] = 'V';
-    AAs["GUA"] = 'V';
-    AAs["GUG"] = 'V';
-    AAs["UCU"] = 'S';
-    AAs["UCC"] = 'S';
-    AAs["UCA"] = 'S';
-    AAs["UCG"] = 'S';
-    AAs["CCU"] = 'P';
-    AAs["CCC"] = 'P';
-    AAs["CCA"] = 'P';
-    AAs["CCG"] = 'P';
-    AAs["ACU"] = 'T';
-    AAs["ACC"] = 'T';
-    AAs["ACA"] = 'T';
-    AAs["ACG"] = 'T';
-    AAs["GCU"] = 'A';
-    AAs["GCC"] = 'A';
-    AAs["GCA"] = 'A';
-    AAs["GCG"] = 'A';
-    AAs["UAU"] = 'Y';
-    AAs["UAC"] = 'Y';
-    AAs["CAU"] = 'H';
-    AAs["CAC"] = 'H';
-    AAs["CAA"] = 'Q';
-    AAs["CAG"] = 'Q';
-    AAs["AAU"] = 'N';
-    AAs["AAC"] = 'N';
-    AAs["AAA"] = 'K';
-    AAs["AAG"] = 'K';
-    AAs["GAU"] = 'D';
-    AAs["GAC"] = 'D';
-    AAs["GAA"] = 'E';
-    AAs["GAG"] = 'E';
-    AAs["UGU"] = 'C';
-    AAs["UGC"] = 'C';
-    AAs["UGG"] = 'W';
-    AAs["CGU"] = 'R';
-    AAs["CGC"] = 'R';
-    AAs["CGA"] = 'R';
-    AAs["CGG"] = 'R';
-    AAs["AGU"] = 'S';
-    AAs["AGC"] = 'S';
-    AAs["AGA"] = 'R';
-    AAs["AGG"] = 'R';
-    AAs["GGU"] = 'G';
-    AAs["GGC"] = 'G';
-    AAs["GGA"] = 'G';
-    AAs["GGG"] = 'G';
+
+    AAs = {
+        {"UUU", 'F'},  {"UUC", 'F'}, 
+        {"UUA", 'L'},  {"UUG", 'L'}, {"CUU", 'L'},  {"CUC", 'L'}, {"CUA", 'L'},  {"CUG", 'L'}, 
+        {"AUU", 'I'}, {"AUC", 'I'},  {"AUA", 'I'}, 
+        {"AUG", 'M'}, 
+        {"GUU", 'V'},  {"GUC", 'V'}, {"GUA", 'V'},  {"GUG", 'V'},
+        {"UCU", 'S'},  {"UCC", 'S'}, {"UCA", 'S'},  {"UCG", 'S'},
+        {"CCU", 'P'},  {"CCC", 'P'}, {"CCA", 'P'},  {"CCG", 'P'},
+        {"ACU", 'T'},  {"ACC", 'T'}, {"ACA", 'T'},  {"ACG", 'T'},
+        {"GCU", 'A'},  {"GCC", 'A'}, {"GCA", 'A'},  {"GCG", 'A'},
+        {"UAU", 'Y'},  {"UAC", 'Y'},
+        {"CAU", 'H'},  {"CAC", 'H'},
+        {"CAA", 'Q'},  {"CAG", 'Q'},
+        {"AAU", 'N'},  {"AAC", 'N'},
+        {"AAA", 'K'},  {"AAG", 'K'},
+        {"GAU", 'D'},  {"GAC", 'D'},
+        {"GAA", 'E'},  {"GAG", 'E'},
+        {"UGU", 'C'},  {"UGC", 'C'},
+        {"UGG", 'W'},
+        {"CGU", 'R'},  {"CGC", 'R'}, {"CGA", 'R'},  {"CGG", 'R'}, {"AGA", 'R'},  {"AGG", 'R'}, 
+        {"AGU", 'S'},  {"AGC", 'S'},
+        {"GGU", 'G'},  {"GGC", 'G'}, {"GGA", 'G'},  {"GGG", 'G'},
+    };
 
     AminoAcid d('D', 'a', "Aspartate");
     amino.push_back(d);
@@ -166,6 +129,14 @@ void Translator::inputDNA() {
         cout << initDNAStrandBuffer[i];
     }
     cout << endl << endl;
+
+    // Clear out old arrays
+    DNAcompStrandBuffer.clear();
+    DNArevStrandBuffer.clear();
+    initRNAStrandBuffer.clear();
+    RNAcompStrandBuffer.clear();
+    RNArevStrandBuffer.clear();
+    proteinPolymerBuffer.clear();
 }
 
 void Translator::DNAcomplement() {
